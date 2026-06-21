@@ -1,0 +1,100 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<script src="./support.js"></script>
+</head>
+<body>
+<x-dc>
+<helmet>
+<style>
+  html,body{margin:0;padding:0;}
+  body{background:#c9c6bf;font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;-webkit-font-smoothing:antialiased;text-rendering:optimizeLegibility;}
+  *{box-sizing:border-box;}
+  h1,h2,h3,p{margin:0;}
+  @page { size: 424mm 148mm; margin: 0; }
+  @media print{
+    body{background:#fff;}
+    .app{padding:0 !important;gap:0 !important;display:block !important;}
+    .screen-only{display:none !important;}
+    .page{box-shadow:none !important;margin:0 !important;}
+  }
+</style>
+</helmet>
+<div class="app" style="min-height:100vh;display:flex;flex-direction:column;align-items:center;gap:40px;padding:48px 16px 80px;">
+
+  <!-- ===== screen brief ===== -->
+  <div class="screen-only" style="width:424mm;max-width:94vw;color:#332f29;">
+    <div style="display:flex;align-items:center;gap:10px;margin-bottom:10px;">
+      <span style="display:block;width:34px;height:4px;background:#c25a2a;"></span>
+      <span style="font-size:12px;font-weight:600;letter-spacing:0.32em;text-transform:uppercase;color:#857b6d;">Mixam A5 Brochure · Cover file (print separately)</span>
+    </div>
+    <div style="font-size:28px;font-weight:700;text-transform:uppercase;line-height:1;">Cover Spread — Outer</div>
+    <div style="margin-top:9px;font-size:13px;line-height:1.7;color:#67625a;max-width:880px;">
+      One flat sheet, <b style="color:#332f29;">424&nbsp;×&nbsp;148&nbsp;mm</b> with <b style="color:#332f29;">no bleed</b>: Back&nbsp;210 + <b>Spine&nbsp;4&nbsp;mm</b> + Front&nbsp;210 across, 148&nbsp;mm tall. Quiet area 8&nbsp;mm from every edge. The front photo fills the entire front panel, spine fold to right trim.
+      Guides are screen-only — <span style="color:#c25a2a;font-weight:700;">red&nbsp;= bleed</span>, <span style="color:#2a7fb8;font-weight:700;">blue&nbsp;= trim / fold</span>, <span style="color:#3f9460;font-weight:700;">green&nbsp;= quiet area</span>.
+    </div>
+  </div>
+
+  <!-- ===== COVER SPREAD · 424 × 148 (no bleed, 4mm spine) ===== -->
+  <div class="page" data-screen-label="Cover spread" style="position:relative;width:424mm;height:148mm;background:#14100c;flex:none;overflow:hidden;box-shadow:0 10px 44px rgba(0,0,0,0.30);">
+
+    <!-- BACK panel background (x0..210, full height) -->
+    <div style="position:absolute;left:0;top:0;width:210mm;height:148mm;background:#14100c;"></div>
+
+    <!-- FRONT cover photo · fills front panel (spine fold x214 → right trim x424, full height) -->
+    <img src="print/cover.jpg" alt="" style="position:absolute;left:214mm;top:0;width:210mm;height:148mm;object-fit:cover;object-position:center;display:block;">
+    <div style="position:absolute;left:214mm;top:0;width:210mm;height:148mm;background:linear-gradient(0deg, rgba(8,6,5,0.60) 0%, rgba(8,6,5,0.12) 24%, rgba(8,6,5,0) 42%), linear-gradient(180deg, rgba(8,6,5,0.42) 0%, rgba(8,6,5,0) 18%);pointer-events:none;"></div>
+
+    <!-- BACK content (quiet area x8..198, y8..140) -->
+    <div style="position:absolute;left:8mm;top:8mm;width:190mm;height:132mm;display:flex;flex-direction:column;justify-content:space-between;color:#b9b1a4;">
+      <div style="font-size:2.9mm;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#9b9183;">Mauricio Chigutti</div>
+      <div style="max-width:118mm;">
+        <span style="display:block;width:15mm;height:0.7mm;background:#c25a2a;margin-bottom:6mm;"></span>
+        <div style="font-size:4mm;line-height:1.7;color:#cbc3b6;letter-spacing:0.01em;">A photographic essay on rediscovering a city, and a self, through the eyes of an expatriate. All photographs made in Paris, 2026.</div>
+        <div style="margin-top:7mm;font-size:2.7mm;font-weight:500;letter-spacing:0.22em;text-transform:uppercase;color:#8c8273;">mauriciochigutti.com</div>
+      </div>
+    </div>
+
+    <!-- SPINE (x210..214, 4mm) -->
+    <div style="position:absolute;left:210mm;top:0;width:4mm;height:148mm;background:#0e0a07;border-left:0.2mm solid rgba(255,255,255,0.05);border-right:0.2mm solid rgba(255,255,255,0.05);"></div>
+    <div style="position:absolute;left:210mm;top:8mm;width:4mm;height:132mm;display:flex;align-items:center;justify-content:center;">
+      <div style="transform:rotate(90deg);transform-origin:center;white-space:nowrap;font-size:2.1mm;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:#e8e0d3;">The Paris Expatriate · Chigutti</div>
+    </div>
+
+    <!-- FRONT content (quiet area x226..416, y8..140) -->
+    <div style="position:absolute;left:226mm;top:8mm;width:190mm;height:132mm;display:flex;flex-direction:column;justify-content:space-between;color:#f5efe6;">
+      <div style="display:flex;justify-content:space-between;align-items:flex-start;">
+        <div style="font-size:2.9mm;font-weight:700;letter-spacing:0.3em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,0.7);">Mauricio Chigutti</div>
+        <div style="font-size:2.9mm;font-weight:600;letter-spacing:0.3em;text-transform:uppercase;color:#fff;text-shadow:0 1px 10px rgba(0,0,0,0.75);">Paris · 2026</div>
+      </div>
+      <div>
+        <span style="display:block;width:17mm;height:0.7mm;background:#d2702f;margin-bottom:6mm;box-shadow:0 1px 8px rgba(0,0,0,0.35);"></span>
+        <h1 style="font-size:15mm;line-height:0.92;font-weight:700;letter-spacing:-0.01em;text-transform:uppercase;text-shadow:0 2px 22px rgba(0,0,0,0.55);">The Paris<br>Expatriate</h1>
+      </div>
+    </div>
+
+    <!-- ===== screen-only guides ===== -->
+    <div class="screen-only" aria-hidden="true">
+      <!-- trim = outer edge (no bleed) -->
+      <div style="position:absolute;inset:0;outline:0.4mm solid rgba(42,127,184,0.85);pointer-events:none;"></div>
+      <!-- spine fold lines -->
+      <div style="position:absolute;left:210mm;top:0;width:0;height:148mm;border-left:0.4mm dashed rgba(42,127,184,0.9);"></div>
+      <div style="position:absolute;left:214mm;top:0;width:0;height:148mm;border-left:0.4mm dashed rgba(42,127,184,0.9);"></div>
+      <!-- back quiet -->
+      <div style="position:absolute;left:8mm;top:8mm;width:190mm;height:132mm;outline:0.35mm dashed rgba(63,148,96,0.85);pointer-events:none;"></div>
+      <!-- front quiet -->
+      <div style="position:absolute;left:226mm;top:8mm;width:190mm;height:132mm;outline:0.35mm dashed rgba(63,148,96,0.85);pointer-events:none;"></div>
+      <!-- labels -->
+      <div style="position:absolute;left:95mm;top:2mm;font-size:2.3mm;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(42,127,184,0.95);">Back · 210 × 148</div>
+      <div style="position:absolute;left:300mm;top:2mm;font-size:2.3mm;font-weight:700;letter-spacing:0.16em;text-transform:uppercase;color:rgba(42,127,184,0.95);">Front · 210 × 148</div>
+      <div style="position:absolute;left:198mm;top:-5.5mm;font-size:2.3mm;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:rgba(42,127,184,0.95);">Spine 4 mm</div>
+    </div>
+    <div class="screen-only" style="position:absolute;left:0;right:0;bottom:-7mm;text-align:center;font-size:2.5mm;letter-spacing:0.18em;text-transform:uppercase;color:#6f675c;">Cover spread · 424 × 148 mm · Back 210 + Spine 4 mm + Front 210 · no bleed</div>
+  </div>
+
+</div>
+</x-dc>
+</body>
+</html>
